@@ -1,7 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # 1. Import CORS
-import speech_recognition as sr
-import pyttsx3
 from google import genai
 import time
 
@@ -11,14 +9,7 @@ CORS(app)  # 2. Enable CORS for your app
 # Note: Keep your API key private in real projects!
 client = genai.Client(api_key="AIzaSyDHYrS3snwAW3GEACjIBxyHkPPBjf9PkuU")
 
-engine = pyttsx3.init()
-engine.setProperty('rate', 160)
 
-def speak(text):
-    # Note: runAndWait() can sometimes block the Flask response 
-    # until the speaking finishes. 
-    engine.say(text)
-    engine.runAndWait()
 
 
 
