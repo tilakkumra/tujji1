@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS  # 1. Import CORS
 from google import genai
 import time
+import os
 
 app = Flask(__name__)
 CORS(app)  # 2. Enable CORS for your app
 
 # Note: Keep your API key private in real projects!
-client = genai.Client(api_key="AIzaSyDHYrS3snwAW3GEACjIBxyHkPPBjf9PkuU")
-
+client = genai.configure(api_key=os.environ.get("AIzaSyDHYrS3snwAW3GEACjIBxyHkPPBjf9PkuU"))
 
 
 
