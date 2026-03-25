@@ -54,6 +54,10 @@ def ask_ai(question):
 
 
 @app.route("/ask", methods=["POST"])
+@app.route("/")
+def home():
+    return "Bujji AI is LIVE 🚀"
+    
 def ask():
     data = request.json
     question = data.get("message")
